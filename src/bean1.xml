@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p = "http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/p http://www.springframework.org/schema/p/spring-p.xsd">
+
+    <!--配置 User 对象创建 -->
+    <bean id="user" class="com.the_ring.spring.ioc.User">
+        <property name="sname" value="LiLy"></property>
+
+        <!--有参构造使用 constructor-arg, set 使用 property -->
+<!--        <constructor-arg name="sname" value="uued"></constructor-arg>-->
+<!--        <constructor-arg index="0" value="sjdfjf"></constructor-arg>-->
+
+
+
+        <!--数组-->
+        <property name="ss">
+            <array>
+                <value>sigkg</value>
+                <value>hhhdjgfhd</value>
+                <value>jgjd</value>
+            </array>
+        </property>
+
+        <!--List-->
+        <property name="friends">
+            <list>
+                <value>jjgkdjg</value>
+                <value>shjfhdjg</value>
+                <value>jdfgjd</value>
+            </list>
+        </property>
+
+        <!--Map-->
+        <property name="parents">
+            <map>
+                <entry key="skfjk" value="jsfkj"></entry>
+                <entry key="sfjjfs" value="jfhjhsjfh"></entry>
+            </map>
+        </property>
+
+        <!--set-->
+        <property name="abc">
+            <set>
+                <value>sjfkjk</value>
+                <value>abc</value>
+                <value>abc</value>
+            </set>
+        </property>
+
+
+        <property name="telephone" ref="telNum"></property>
+        <!--嵌套-->
+<!--        <property name="telephone">-->
+<!--            <bean id="telNum" class="com.the_ring.spring.ioc.TelNum">-->
+<!--                <property name="num" value="17672674"></property>-->
+<!--                <property name="belong" value="yidond"></property>-->
+<!--            </bean>-->
+<!--        </property>-->
+        <!--级联:使用这种方式需要用到 get 方法-->
+<!--        <property name="telephone" ref="telNum"></property>-->
+<!--        <property name="telephone.num" value="25546"></property>-->
+<!--        <property name="telephone.belong" value="dianxin"></property>-->
+    </bean>
+
+    <bean id="telNum" class="com.the_ring.spring.ioc.TelNum">
+        <property name="num" value="12234"></property>
+        <property name="belong" value="liantong"></property>
+    </bean>
+
+<!--    &lt;!&ndash;set 方法下使用 p &ndash;&gt;-->
+<!--    <bean id="user" class="com.the_ring.spring.ioc.User" p:sname="hdjhj"></bean>-->
+</beans>
